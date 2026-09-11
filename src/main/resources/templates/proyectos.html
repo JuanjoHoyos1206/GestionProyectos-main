@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Proyectos - Trabajo 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Polimorfismo: Gestión de Proyectos</h1>
+    <h4 class="text-center text-secondary mb-5">Estudiante: Juan José Hoyos Escobar | Politécnico Colombiano Jaime Isaza Cadavid</h4>
+
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="obj : ${listaGestion}">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="card-title mb-0" th:text="${obj.class.simpleName}"></h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="text-muted" th:text="'Proyecto: ' + ${obj.proyecto.nombre}"></h6>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Planificar:</strong> <span th:text="${obj.planificar(obj.proyecto)}"></span></li>
+                        <li class="mb-2"><strong>Asignar Tareas:</strong> <span th:text="${obj.asignarTareas(obj.proyecto)}"></span></li>
+                        <li class="mb-2"><strong>Entregar Resultado:</strong> <span th:text="${obj.entregarResultado(obj.proyecto)}"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
